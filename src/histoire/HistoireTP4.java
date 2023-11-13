@@ -12,27 +12,13 @@ public class HistoireTP4 {
 
 		Ronin ron = new Ronin("Roro","Shochu");
 		
-		System.out.println("\n"+(com.getArgent()+com.getArgent()+
-				yak.getArgent() + yak2.getArgent() + ron.getArgent()
-				)
-		+"\n");
 
-		com.direBonjour();
-		yak.direBonjour();
-		ron.direBonjour();
-		
-		
-		yak.extorquer(com);
-		yak2.extorquer(com2);
-		
-		ron.provoquer(yak);
-		ron.provoquer(yak2);
+		com.faireConnaissance(ron);
+		com.faireConnaissance(yak);
+		com.faireConnaissance(yak2);
+		com.faireConnaissance(com2);
+		com.listerConnaissance();
 
-		ron.donner(com);
-		System.out.println("\n"+(com.getArgent()+ com2.getArgent() +
-				yak.getArgent() + yak2.getArgent() + ron.getArgent()
-				)
-		+"\n");
 	}
 
 }

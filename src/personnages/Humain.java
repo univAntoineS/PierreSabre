@@ -1,9 +1,15 @@
 package personnages;
 
-public class Humain {
+import java.util.Iterator;
+import java.util.PriorityQueue;
+
+public class Humain implements Comparable<Humain>{
 	protected String nom;
 	protected String boissonFav;
 	protected int argent;
+	
+	public PriorityQueue<Humain> connaissances = new PriorityQueue<>();
+	private int nbConnaissance = 0;
 	
 	public Humain(String nom,String boissonFav,int argent)
 	{
@@ -45,5 +51,49 @@ public class Humain {
 	public void perdreArgent(int perte)
 	{
 		this.argent -= perte;
+	}
+	
+	private void memoriser(Humain autreHumain)
+	{
+		if(this.nbConnaissance<30)
+		{
+			this.connaissances.add(autreHumain);
+			this.nbConnaissance++;
+		}
+		else
+		{
+			this.connaissances.poll();
+			this.connaissances.add(autreHumain);
+		}
+	}
+	
+	public void repondre(Humain autreHumain)
+	{
+		this.direBonjour();
+		this.memoriser(autreHumain);
+	}
+	
+	public void faireConnaissance(Humain autreHumain)
+	{
+		this.direBonjour();
+		autreHumain.repondre(this);
+		this.memoriser(autreHumain);
+	}
+	
+	public void listerConnaissance()
+	{
+		String strToSay = "";
+		Iterator<Humain> it = this.connaissances.iterator();
+		while(it.hasNext())
+		{
+			strToSay += it.next().getNom() + ", ";
+		}
+		this.parler("Je connais beaucoup de monde dont : " + strToSay);
+
+	}
+	@Override
+	public int compareTo(Humain o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
