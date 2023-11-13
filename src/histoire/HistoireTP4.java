@@ -13,11 +13,13 @@ public class HistoireTP4 {
 		Ronin ron = new Ronin("Roro","Shochu");
 		
 
-		com.faireConnaissance(ron);
+		/*com.faireConnaissance(ron);
 		com.faireConnaissance(yak);
 		com.faireConnaissance(yak2);
 		com.faireConnaissance(com2);
-		com.listerConnaissance();
+		com.listerConnaissance();*/
+		
+		yak.direBonjour();
 
 	}
 
